@@ -5,6 +5,7 @@ yum install jenkins -y
 systemctl start jenkins
 systemctl enable jenkins
 systemctl status jenkins
+<<<<<<< HEAD
 Follow the instructions given and default port for jenkins is 8080
 find /usr/lib/jvm/java-1.8* | head -n 3
 vi .bash_profile
@@ -17,3 +18,14 @@ M2=#M2_HOME/bin
 PATH=$PATH:$JAVA_HOME:$M2_HOME:$M2:HOME/bin
 
 
+=======
+#Follow the instructions given and default port for jenkins is 8080
+Host IP address:8080 - will give the Jenkins home page
+Under Manage Jenkins, install below plugins
+1. Maven invoker
+2. Github integrator
+3. Publish over SSH
+Using the 3 one we can able to connect to docker-host and install tomcat/nginx container with the 
+customized/random port numbers.
+define user under docker-host as dockeradmin and provide the previlages to that user.
+>>>>>>> 1cd393af24ed0ff1d1619b544fedb05098a0c146
