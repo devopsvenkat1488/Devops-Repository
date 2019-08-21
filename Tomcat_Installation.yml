@@ -1,0 +1,15 @@
+---
+- host: production
+  become: true
+  become_user: root
+  tasks:
+  - name: Installing Tomcat server
+    yum: name=tomcat state=latest
+  - name: Staring Tomcat Server
+    service: name=tomcat state=started
+  - name: Deploying sample.war file
+    copy: src=/etc/ansible/sample.war dest=/usr/share/tomcat/webapps
+    notify: restart tomcat
+  handlers:
+  - name: restart tomcat
+    service: name=tomcat state=restarted
