@@ -1,29 +1,16 @@
-#version: '3' # version of YML file
-services:
-  db:
-    image: mysql:5.7
-    volumes:
-      - db_data:/var/lib/mysql
-    restart: always #restart my container whenever my host machine restarts.
-    environment: 
-      MYSQL_ROOT_PASSWORD: mypassword 
-      MYSQL_DATABASE: wordpress
-      MYSQL_USER: wordpressuser
-      MYSQL_PASSWORD: wordpress
+version: '2'
 
-  wordpress:
-    depends-on: 
-      - db
-    image: wordpress:latest
+services: 
+    database: 
+    image: mysql
     ports: 
-      -"8080:80"
-    restart: always
+    - "3306:3306"
     environment: 
-      WORDPRESS_DB_HOST: db:3306
-      WORDPRESS_DB_USER: wordpressuser
-      WORDPRESS_DB_PASSWORD : wordpress
+    - MY_SQL_ROOT_PASSWORD= password 
+    - MY_SQL_USER= user 
+    - MY_SQL_PASSWORD= password 
+    - MY_SQL_DATABASE= mydb 
 
-volumes: 
-      - db_data:
-      
+web:
+   image: nginx
 

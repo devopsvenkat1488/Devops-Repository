@@ -59,6 +59,7 @@ Persistent Data:Bind Mounts
 
 mkdir dockerbind
 docker run -d --name nginxbind --mount type=bind,source=$(pwd),target=/app nginx # running nginx with bind Mounts
+docker run -d --name tomcatbind --mount type=bind,source=$(pwd),target=/usr/local/tomcat/webapps my_tomcat
 docker exec -it nginxbind bash
 cd app
 -> Open another terminal and login to host machine
