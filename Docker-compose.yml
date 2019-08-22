@@ -13,4 +13,5 @@ services:
 
 web:
    image: nginx
+   replica: 2
 
