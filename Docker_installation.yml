@@ -1,9 +1,0 @@
----
-- hosts: 172.31.45.251
-  become: all
-  become_user: root
-  tasks:
-  - name: Installing docker
-    yum: name=docker state=latest
-    notify: systemctl restart docker
-    
