@@ -1,0 +1,25 @@
+##Docker - swarm
+
+Docker swarm is a clustering and scheduling tool for Docker containers.
+
+Orchestrations : Defining Service and Nodes.
+
+Docker swarm have two types of nodes - Master(Manager) and Worker.
+
+Every swarm start out with one Manager node desingated as the leader
+
+swarm is higly avilable thanks to its implementation of the RAFT Algorithm.
+
+RAFT Algorithm: The leader node is constantly checking in with its fellow manager nodes and syncing
+their states.
+
+# Command to initilize Docker swarm(2377 & 2376 or default internal orchestartion ports for swarm)
+docker swarm join --token SWMTKN-1-2yn2d7srpzlltz4lscmhvhxjb0klx7zrmdy8fuo8b6ycpve91o-cewq30xs455pyol7yndnijrdb 172.31.95.204:2377  # run this command in worker node
+docker swarm init --advertise-addr <host IP>
+#Ingress is the default network between the swarms
+Ingress netwok is used to interconnect the containers 
+
+Ingress routing mash - This enables each node in the swarm accept the connection on published 
+ports for any service running in the swarm, even if there no task running on the node.
+
+docker service inspect --format="{{json.Endpoint.Spec.Ports}}" drupal

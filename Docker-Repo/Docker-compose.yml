@@ -1,16 +1,28 @@
 version: '2'
 
-services: 
-    database: 
-    image: mysql
-    ports: 
-    - "3306:3306"
-    environment: 
-    - MY_SQL_ROOT_PASSWORD= password 
-    - MY_SQL_USER= user 
-    - MY_SQL_PASSWORD= password 
-    - MY_SQL_DATABASE= mydb 
+services:
+  database:
+          image: mysql
+          restart: always
+          container_name: mysql_container
+          ports:
+            - "3306:3306"
+          environment:
+            - MY_SQL_ROOT_PASSWORD= password
+            - MY_SQL_USER= user
+            - MY_SQL_PASSWORD= password
+            - MY_SQL_DATABASE= mydb
 
-web:
-   image: nginx
+  web:
+     image: nginx
+     restart: always
+     container_name: my_nginx_container
+     ports:
+       - "8080:80"
+     depends_on: 
+       - database
+
+
+
+
 
