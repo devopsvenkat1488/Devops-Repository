@@ -2,7 +2,7 @@ pipeline {
     agent any
     tools {
         maven 'my maven'
-        jdk 'my java'
+        jdk 'my java'   
     }
     stages {
 	    stage ('Initilize') {
@@ -26,6 +26,11 @@ pipeline {
                 always {
                     junit 'target/surefire-reports/*.xml' 
                 }
+            }
+        }
+        stage('Deploy') {
+            steps {
+
             }
         }
     }
