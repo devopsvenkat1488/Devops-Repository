@@ -1,0 +1,11 @@
+##
+1. Need a code avilable in github.
+2. Pull the code from github 
+   Compile it - using declarative pipeline
+   Test it    - Using declarative pipeline
+   Build it   - Using declarative pipeline
+3. Once sucessfully build, create an image with the code and run the service/container.
+4. When there is any changes in the code, container wont stop but code will get changed and deployed. 1. scenario.
+
+5. Once the code service/container got spinned up, need to scale the container and provide an high avilable 
+   application.
