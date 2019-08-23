@@ -1,9 +1,10 @@
 1. Do we need Master branch for every git repository? Is it possible to create a git repository with master?
 Ans:-  The “master” branch in Git is not a special branch. 
 It is exactly like any other branch. 
-The only reason nearly every repository has one is that the git init command creates it by default and most people don't bother to change it.
+The only reason nearly every repository has one is that the git init command creates 
+it by default and most people don't bother to change it.
 2. How you integrate git with Jenkins?
-Ans:- Using GIT plugin in jenkins under manage jenkins
+Ans:- Using 'GIT plugin' in jenkins under manage jenkins
 3. Global Repository to store credintials which will use for all jenkins jobs
 Ans:- refer https://jenkins.io/doc/book/using/using-credentials/
 4. How to override the admin credintials in jenkins from job level?
@@ -15,7 +16,7 @@ Ans :- Maven will then execute the command on the resources described in the POM
 7. What is the role of setting.xml
 Ans: - These include values such as the local repository location, alternate remote repository servers, and authentication information. There are two locations where a settings.xml file may live: The Maven install: ${maven.home}/conf/settings.xml. A user's install: ${user.home}/.m2/settings.xml.
 8. What will happen if POM.xml not provided?
-Ans:- system.xml consists of user/system configuration while pom.xml consists of project information. 
+Ans:- setting.xml consists of user/system configuration while pom.xml consists of project information. 
 POM.xml consists of all dependecies without POM.XML build cant go further.
 9. What steps to solve merge-conflict? using mergetool.
 10. What is difference between .WAR and .EAR?
