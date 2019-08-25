@@ -1,0 +1,19 @@
+FROM richxsl/rhel7
+RUN yum install update \
+    && subscription-manager repos \
+    && --enable rhel-7-server-optional-rpms \
+    && --enable rhel-server-rhscl-7-rpms \
+    && yum install @development -y
+
+
+
+FROM python:3
+RUN git clone https://bitbucket.org/azneita/devops-challenge.git \
+  && cd devops-challenge \
+  && ls -ltr \
+  && pip install --upgrade pip
+  && pip install -r requirements.txt
+CMD 
+
+  docker build -t my-python-app .
+  docker run -it --rm --name my-running-app my-python-app
