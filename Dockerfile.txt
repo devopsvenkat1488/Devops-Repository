@@ -11,9 +11,13 @@ FROM python:3
 RUN git clone https://bitbucket.org/azneita/devops-challenge.git \
   && cd devops-challenge \
   && ls -ltr \
-  && pip install --upgrade pip
+  && pip install --upgrade pip \
   && pip install -r requirements.txt
-CMD 
+CMD cd devops-challenge python app.py
+
 
   docker build -t my-python-app .
   docker run -it --rm --name my-running-app my-python-app
+  docker run -d --name=my-python-project -p 5000:5000 --mount type=bind,source=$(pwd),target=/devops-challenge my-python-app
+  docker service create --name=my-python-app-service -p 5000:5000 --mount type=bind,source=$(pwd),target=/devops-challenge my-python-app
+  
