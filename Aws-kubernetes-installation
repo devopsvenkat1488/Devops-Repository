@@ -1,0 +1,60 @@
+Execute Custom Image on AWS Kubernetes
+
+
+
+1. Create AWS Kubernetes Cluster
+
+kops create cluster --yes --state=s3://kops-bucket-a87654 --zones=ap-south-1a --node-size=t2.micro --master-size=t2.micro --name=level360degree.uk
+If you don't have the Domain:
+
+kops create cluster --yes --state=s3://kops-bucket-a87654 --zones=ap-south-1a --node-size=t2.micro --master-size=t2.micro --name=test.k8s.local
+
+
+
+2. Verify Kubernetes Cluster.
+
+kops validate clusterkops validate cluster -o jsonkops validate cluster -o yaml
+
+
+3. Start the Deployment on Kubernetes Cluster.
+
+kubectl create deployment magicalnginx --image=anshuldevops/magicalnginx
+
+
+
+4. Get Information of Running Deployments
+
+kubectl get deployments
+
+
+
+5. Describe the Running Deployment
+
+kubectl describe deployment magicalnginx
+
+
+
+6. Make the NGINX container accessible via the internet via loadbalancer:
+
+kubectl create service loadbalancer magicalnginx --tcp=80:80
+
+
+
+7. Get Running Services
+
+kubectl get svc
+
+
+
+8. Remove Services
+
+kubectl delete services magicalnginx
+
+
+
+9. Remove Deployment
+
+kubectl delete deployment magicalnginx
+10. Delete Cluster
+
+kops delete cluster --name=level360degree.uk --yes --state=s3://kops-bucket-a87654
