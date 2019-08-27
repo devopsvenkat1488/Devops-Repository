@@ -12,4 +12,3 @@ services:
     environment:
      - hostname: "suhanish0910.site"
      - hostport: 5000
-
