@@ -1,0 +1,11 @@
+FROM ubuntu:latest
+LABEL maintainer_name: "venkatesh"
+LABEL maintainer_version: 1.0
+RUN mkdir /opt/tomcat \
+    && apt-get install tomcat -y
+    && apt-get install java -y
+WORKDIR /opt/tomcat/webapps
+RUN curl -O -L https://github.com/VenkateshSarivisetty/DevOpsClassCodes/blob/master/addressbook.war
+VOLUME $PWD:/opt/tomcat/webapps
+EXPOSE 9090
+CMD ["/opt/tomcat/bin/catalina.sh", "addressbook.war"]

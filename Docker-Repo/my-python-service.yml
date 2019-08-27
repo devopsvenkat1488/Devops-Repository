@@ -1,19 +1,15 @@
-version: '3'
+version: '2'
 
-services:
-  mypython:
-  image: apple1002/my-python-app
-  restart: always
-  container_name: my-python-app-service
-  port:
-    - "5000:5000"
-  volumes:
-    --mount type=bind,source=$(pwd),target=/devops-challenge
-  environment:
-    hostname: suhanish0910.site
-    hostport: "5000"
-  replicas: 5
-
-  
-  
- 
+service:
+   mypython:
+   image: apple1002/my-python-app:latest
+   container_name: my-python-app-service
+   restart: always
+   port:
+     - "5000:5000"
+   volumes:
+     - /home/vagrant/myproject/devops-challenge:/devops-challenge 
+   environment:
+     - hostname: suhanish0910.site
+     - hostport: 5000
+replicas: 5
