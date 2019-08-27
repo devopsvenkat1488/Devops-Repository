@@ -1,17 +1,15 @@
-version: '2'
+version: '3'
 
-services: 
-  databases: 
-  image: mysql
-  ports: 
-    - "3306:3306"
-  environment: 
-    - MY_SQL_ROOT_PASSWORD= password 
-    - MY_SQL_USER= user 
-    - MY_SQL_PASSWORD= password 
-    - MY_SQL_DATABASE= mydb 
-
-  web:
-   image: nginx:latest
-   replica: 2
+services:
+  mypython:
+    image: apple1002/my-python-app:latest
+    restart: always
+    container_name: my-python-app-service
+    port:
+     - "5000:5000"
+    volumes:
+     - /home/vagrant/myproject/devops-challenge:/devops-challenge
+    environment:
+     - hostname: "suhanish0910.site"
+     - hostport: 5000
 
