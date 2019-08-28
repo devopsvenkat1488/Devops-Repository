@@ -1,0 +1,27 @@
+
+##Elastic Load Balancer setup 
+
+1. Deploy 3 servers with nginx installed.
+
+   Take 3 EC2 webserver linux machines and install nginx 
+     - #!bin/bash
+        yum update -y
+        sudo amazon-linux-extras install nginx1.12
+        systemctl start nginx
+        systemctl enable nginx
+        systemctl status nginx
+
+2. Login to each server and add extra line to index.html as webserver1 , 2 and 3.
+   update index.html file under /usr/share/nginx/html and mark each location name for each webserver respectively.
+   and click refresh.
+
+3. Configure Target group and add only Webserver1 and Webserver2 only
+   Note:- Make sure to add avilability zones properly becoz we cant add/update further.
+
+4. Deploy load balance and add the target group
+
+5. Check the load balance of requests are happening between the server 1 and 2. 
+
+6. Add the 3rd server and check requests are going to server3 or not?
+
+7. Delete server1 and 2 and check whether it is going to server3 alone.
