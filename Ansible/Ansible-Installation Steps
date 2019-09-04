@@ -1,0 +1,19 @@
+yum install epel-release -y
+yum update
+yum install git python python-devel python-pip openssl ansible
+ansible --version
+
+Enable sudo_user permission under ansible.cfg file
+Add the node server IP/hostname under hosts file 
+
+## [webservers]
+## alpha.example.org
+## beta.example.org
+## 192.168.1.100
+## 192.168.1.110
+172.31.80.61 - Node 1
+172.31.94.61 - Node 2
+
+Adduser ansible
+passwd ansible
+ansible All(All) All
