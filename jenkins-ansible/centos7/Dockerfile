@@ -21,3 +21,33 @@ RUN curl -O https://bootstrap.pypa.io/get-pip.py  && \
     pip install awscli --upgrade
 
 CMD /usr/sbin/sshd -D
+
+
+
+
+####My Version Dockerfile#####
+
+FROM centos
+
+RUN yum -y install openssh-server
+
+RUN useradd remote_user && \
+    echo "1234" | passwd remote_user --stdin && \
+    mkdir /home/remote_user/.ssh && \
+    touch /home/remote_user/.ssh/authorized_keys && \
+    chmod 700 /home/remote_user/.ssh
+
+RUN chown remote_user:remote_user -R /home/remote_user/.ssh/ && \
+    chmod 600 /home/remote_user/.ssh/authorized_keys
+
+ADD remote_key.pub /home/remote_user/.ssh/authorized_keys
+
+RUN /usr/sbin/sshd-keygen
+
+RUN yum -y install mysql
+
+RUN curl -O https://bootstrap.pypa.io/get-pip.py  && \
+    python get-pip.py && \
+    pip install awscli --upgrade
+
+CMD /usr/sbin/sshd -D
