@@ -16,4 +16,4 @@ Add the node server IP/hostname under hosts file
 
 Adduser ansible
 passwd ansible
-ansible All(All) All
+ansible All(All) All NO PASSWD=YES

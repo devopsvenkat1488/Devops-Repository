@@ -15,6 +15,20 @@ RUN git clone https://bitbucket.org/azneita/devops-challenge.git \
   && pip install -r requirements.txt
 CMD cd devops-challenge python app.py
 
+FROM node:10
+LABEL Maintainer_Name=Venkatesh
+LABEL Maintainer_Version=1.0
+RUN apt-get install git -y \
+    && git clone https://github.com/opsworkshop/node-hello.git \
+    && cd node-hello \
+    && ls -lrt
+WORKDIR /home/node/node-hello
+#VOLUME . /app
+RUN npm install
+EXPOSE 8000
+CMD [ "node", "app.js" ]
+
+
 
   docker build -t my-python-app .
   docker run -it --rm --name my-running-app my-python-app
