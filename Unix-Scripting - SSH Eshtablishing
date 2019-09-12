@@ -1,0 +1,19 @@
+#!/bin/bash
+
+### I have one file which 10 records which is having names like Venkat, Ibrahim, Sooraj which are having salary
+between 10k - 30k, I need to see who are having the salary greater than 10k
+
+ENO  EMPLOYEENAME EMPSALARY
+1    VENKATESH    150000
+2    SOORAJ       200000
+3    Ibrahim      300000
+If salary > 10000
+ print ("")
+
+Source IP - Master Machine - Ubuntu
+Destination IP - Node Machine - Amazon Linux Machine
+
+ssh jenkins@Destination IP mkdir -p .ssh
+cat .ssh/id_rsa.pub | ssh jenkins@Destination IP 'cat >> .ssh/authorized_keys'
+ssh jenkins@Destination IP "chmod 700 .ssh; chmod 640 .ssh/authorized_keys"
+ssh jenkins@Destination IP
