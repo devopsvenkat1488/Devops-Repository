@@ -1,21 +1,30 @@
 ##Jenkins installation in Linux Machine
 sudo wget -O /etc/yum.repos.d/jenkins.repo https://pkg.jenkins.io/redhat-stable/jenkins.repo
 sudo rpm --import https://pkg.jenkins.io/redhat-stable/jenkins.io.key
-yum install jenkins -y
+yum install java-1.8.0-openjdk-devel -y && yum install jenkins -y
 systemctl start jenkins
 systemctl enable jenkins
 systemctl status jenkins
+
+
 <<<<<<< HEAD
 Follow the instructions given and default port for jenkins is 8080
 find /usr/lib/jvm/java-1.8* | head -n 3
 vi .bash_profile
 echo $JAVA_HOME
 #Need to update the below lines under .bash_profile
-JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.201.b09-0.amzn2.x86_64 -- Version may vary depends on the java.
-M2_HOME=/opt/maven/apache-maven-3.6.1 -- Download the latest one using https://maven.apache.org/download.cgi link
+JAVA_HOME=/usr/lib/jvm//usr/lib/jvm/java-1.8.0-openjdk-1.8.0.222.b10-0.amzn2.0.1.x86_64 -- Version may vary depends on the java.
+M2_HOME=/opt/maven/apache-maven-3.6.2 -- Download the latest one using https://maven.apache.org/download.cgi link
 M2=#M2_HOME/bin
 #PATH=$PATH:$JAVA_HOME:$M2_HOME:$M2:$HOME/.local/bin:$HOME/bin
 PATH=$PATH:$JAVA_HOME:$M2_HOME:$M2:HOME/bin
+
+#Installation of Maven
+cd /opt
+wget  http://mirrors.estointernet.in/apache/maven/maven-3/3.6.2/binaries/apache-maven-3.6.2-bin.zip
+unzip apache-maven-3.6.2-bin.zip
+M2_HOME="/opt/maven/apache-maven-3.6.2"
+
 
 
 =======

@@ -17,3 +17,14 @@ Add the node server IP/hostname under hosts file
 Adduser ansible
 passwd ansible
 ansible All(All) All NO PASSWD=YES
+
+
+#Do this from both the machines
+[root@ip-172-31-87-126 ~]# useradd ansibleadmin
+[root@ip-172-31-87-126 ~]# passwd ansible
+Changing password for user ansible.
+New password:
+BAD PASSWORD: The password is shorter than 8 characters
+Retype new password:
+passwd: all authentication tokens updated successfully.
+
