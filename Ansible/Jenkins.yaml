@@ -1,0 +1,50 @@
+---
+- hosts: all
+  tasks:
+   - name: install wget
+     yum:
+      name: wget
+      state: present
+
+   - name: install openJDK
+     yum:
+      name: java-1.8.0-openjdk
+      state: present
+
+   - name: Jenkins repository
+     get_url:
+      url: https://pkg.jenkins.io/redhat-stable/jenkins.repo
+      dest: /etc/yum.repos.d/jenkins.repo
+
+   - name: Import Jenkins Key
+     rpm_key:
+      state: present
+      key: https://pkg.jenkins.io/redhat-stable/jenkins.io.key
+
+   - name: Installing Jenkins
+     yum:
+      name: jenkins
+      state: present
+
+   - name: Starting Jenkins
+     systemd:
+      name: jenkins
+      state: started
+
+   - name: Enabling Jenkins
+     systemd:
+      name: jenkins
+      enabled: true
+   - name: sleep for 10 seconds and continue to play
+     wait_for:
+       timeout: 10
+     delegate_to: localhost
+
+   - name: init password jenkins
+     shell: cat /var/lib/jenkins/secrets/initialAdminPassword
+     register: result
+
+   - name: print init password jenkins
+     debug:
+      var: result.stdout
+     
