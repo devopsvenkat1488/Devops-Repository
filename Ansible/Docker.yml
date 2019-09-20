@@ -1,0 +1,18 @@
+---
+- hosts: all
+  tasks:
+    - name: Docker installation
+      yum:
+        name: docker
+        state: present
+
+    - name: Docker start
+      service:
+        name: docker
+        state: started
+        enabled: yes
+        
+    - name: recursive chmod
+      command: usermod -a -G docker venkat
+      register: chmod_status
+      changed_when: chmod_status.stdout != ""

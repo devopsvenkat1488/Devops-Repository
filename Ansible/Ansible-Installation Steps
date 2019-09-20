@@ -28,3 +28,20 @@ BAD PASSWORD: The password is shorter than 8 characters
 Retype new password:
 passwd: all authentication tokens updated successfully.
 
+#Change the /etc/ssh/ssh_config file 
+PasswordAuthentication yes - Uncomment this line
+#PasswordAuthentication no  - Comment out this line
+
+# service sshd restart in both the machines
+
+ssh-keygen -f <keyfilename>
+ssh-copy-id destination <enter the password for the first time for your user>
+ssh destination - It will connect without any prompt for password.
+
+
+ansible -m ping all 
+ansible all -m copy "src=/home/venkat/index.html dest=/home/venkat"
+ansible all -m yum "name=httpd state=latest"
+ansible all -m service "name=httpd state=started"
+
+

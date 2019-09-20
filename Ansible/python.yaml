@@ -1,0 +1,39 @@
+---
+- hosts: all
+  tasks:
+    - name: Ensure list of packages were installed
+      yum: name= "{{ packages }}" state=latest
+      vars: 
+        packages:
+          - python
+          - python-setuptools
+          - python-dev
+          - build-essential
+          - python-pip
+          - python_mysqldb
+          - mysql_db
+          - mysql_user 
+    - name: ensure all package were upgraded
+      yum: 
+        name: '*'
+        state: latest
+    
+    - name: List Ansible packages and capture the results to debug later
+      yum:
+        list: ansible
+      register: results
+    
+    - name: Start mysql-server
+      service: 
+         name: mysql-server 
+         state: started 
+         enabled: yes
+    
+    - name: Creating database
+      mysql_db:
+         name: "{{ abcd_db}}"
+         state: present
+         login_user: {{ abcd }}
+         login_password: "{{ 1234 }}"
+
+     
