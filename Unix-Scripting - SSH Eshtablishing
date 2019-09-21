@@ -13,7 +13,96 @@ If salary > 10000
 Source IP - Master Machine - Ubuntu
 Destination IP - Node Machine - Amazon Linux Machine
 
-ssh jenkins@Destination IP mkdir -p .ssh
-cat .ssh/id_rsa.pub | ssh jenkins@Destination IP 'cat >> .ssh/authorized_keys'
-ssh jenkins@Destination IP "chmod 700 .ssh; chmod 640 .ssh/authorized_keys"
-ssh jenkins@Destination IP
+ssh-keygen -t rsa
+ssh venkat@172.31.89.182 mkdir -p .ssh
+cat .ssh/id_rsa.pub | ssh venkat@172.31.89.182 'cat >> .ssh/authorized_keys'
+ssh venkat@172.31.89.182 "chmod 700 .ssh; chmod 640 .ssh/authorized_keys"
+ssh venkat@172.31.89.182
+
+
+ssh-keygen -t rsa
+ssh venkat@172.31.94.61 mkdir -p .ssh
+cat .ssh/id_rsa.pub |ssh venkat@172.31.94.61 'cat >> .ssh/authorized_keys'
+ssh venkat@172.31.94.61 "chmod 700 .ssh; chmod 640 .ssh/authorized_keys"
+ssh venkat@172.31.94.61
+
+
+172.31.89.182 - Node
+172.31.87.126 - Master
+
+
+[local_host]
+localhost ansible_port=22 ansible_user=ansible ansible_password=ansible ansible_host=3.93.76.143
+
+
+ssh ansible@172.31.89.182 mkdir -p .ssh
+cat .ssh/id_rsa.pub | ssh ansible@172.31.89.182 'cat >> .ssh/authorized_keys'
+ssh ansible@172.31.89.182 "chmod 700 .ssh; chmod 640 .ssh/authorized_keys"
+ssh ansible@172.31.89.182
+
+wget https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+sudo yum-config-manager --enable epel
+sudo yum repolist
+MySQL-python
+MySQL
+
+sudo yum install mysql80-community-release-el7-3.noarch.rpm
+
+mysql-community-client
+
+sudo yum install python-mysqldb
+/etc/yum.repos.d/nginx.repo
+  565  sudo yum install MySQL-python
+
+
+venkat092019@fisglobal.com
+
+
+
+Ansible - Jenkins - Installed in master
+ 
+Running a jenkins job which is a ansible playbook(venkat)
+
+Jenkins is under (Jenkins owner) - Jenkins job withis ansible playook how the owners ?
+
+ssh venkat@172.31.87.126 "chmod 700 .ssh; chmod 640 .ssh/authorized_keys"
+
+
+172.31.89.182
+172.31.94.61
+
+
+###Ansible - nOD 1
+ssh-keygen -t rsa
+ssh venkat@172.31.89.182 mkdir -p .ssh
+cat .ssh/id_rsa.pub | ssh venkat@172.31.89.182 'cat >> .ssh/authorized_keys'
+ssh venkat@172.31.89.182 "chmod 700 .ssh; chmod 640 .ssh/authorized_keys"
+ssh venkat@172.31.89.182
+
+#Ansible -Node 2
+
+ssh-keygen -t rsa
+ssh venkat@172.31.94.61 mkdir -p .ssh
+cat .ssh/id_rsa.pub |ssh venkat@172.31.94.61 'cat >> .ssh/authorized_keys'
+ssh venkat@172.31.94.61 "chmod 700 .ssh; chmod 640 .ssh/authorized_keys"
+ssh venkat@172.31.94.61
+
+Ansible Master
+ssh-keygen -t rsa
+ssh jenkins@172.31.87.126 mkdir -p /var/lib/jenkins/.ssh/
+cat .ssh/id_rsa.pub |ssh jenkins@172.31.87.126 'cat >> .ssh/authorized_keys'
+ssh jenkins@172.31.87.126 "chmod 700 .ssh; chmod 640 .ssh/authorized_keys"
+ssh jenkins@172.31.87.126
+
+
+Jenkins - Machine
+
+
+
+
+
+
+
+
+
+
