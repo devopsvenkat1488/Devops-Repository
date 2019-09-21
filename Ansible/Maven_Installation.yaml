@@ -1,0 +1,7 @@
+---
+- hosts: all
+  tasks: 
+    - name: Download Apache Maven Repository
+      get_url: http://apachemirror.wuchna.com/maven/maven-3/3.6.2/binaries/apache-maven-3.6.2-bin.tar.gz dest=/opt/maven/apache-maven-3.6.2-bin.tar.gz
+    - name: Unzip the repository
+      shell: chdir /maven creates=/opt/apache-maven-3.6.2-bin.tar -zxf  apache-maven-3.6.2-bin.tar.gz -C /opt
