@@ -13,6 +13,7 @@ If salary > 10000
 Source IP - Master Machine - Ubuntu
 Destination IP - Node Machine - Amazon Linux Machine
 
+<<<<<<< HEAD
 ssh-keygen -t rsa
 ssh venkat@172.31.89.182 mkdir -p .ssh
 cat .ssh/id_rsa.pub | ssh venkat@172.31.89.182 'cat >> .ssh/authorized_keys'
@@ -91,10 +92,38 @@ Ansible Master
 ssh-keygen -t rsa
 ssh jenkins@172.31.87.126 mkdir -p /var/lib/jenkins/.ssh/
 cat .ssh/id_rsa.pub |ssh jenkins@172.31.87.126 'cat >> .ssh/authorized_keys'
+=======
+ssh jenkins@Destination IP mkdir -p .ssh
+cat .ssh/id_rsa.pub | ssh jenkins@Destination IP 'cat >> .ssh/authorized_keys'
+ssh jenkins@Destination IP "chmod 700 .ssh; chmod 640 .ssh/authorized_keys"
+ssh jenkins@Destination IP
+
+172.31.87.126 - Master
+172.31.89.182 - Node1  - Done
+172.31.94.61  - Node2  - 
+
+ssh-keygen -t rsa
+ssh jenkins@172.31.94.61 mkdir -p /var/lib/jenkins/.ssh
+cat .ssh/id_rsa.pub | ssh jenkins@172.31.94.61' cat >> .ssh/authorized_keys'
+ssh jenkins@172.31.94.61 "chmod 700 .ssh; chmod 640 .ssh/authorized_keys"
+ssh jenkins@172.31.94.61
+
+
+ssh-keygen -t rsa
+ssh jenkins@172.31.89.182 mkdir -p /var/lib/jenkins/.ssh
+cat .ssh/id_rsa.pub | ssh jenkins@172.31.89.182' cat >> .ssh/authorized_keys'
+ssh jenkins@172.31.89.182 "chmod 700 .ssh; chmod 640 .ssh/authorized_keys"
+ssh jenkins@172.31.89.182
+
+ssh-keygen -t rsa
+ssh jenkins@172.31.87.126 mkdir -p /var/lib/jenkins/.ssh
+cat .ssh/id_rsa.pub | ssh jenkins@172.31.87.126' cat >> .ssh/authorized_keys'
+>>>>>>> 8460e1e4f5e154e408629eb967aa74fc2249b6da
 ssh jenkins@172.31.87.126 "chmod 700 .ssh; chmod 640 .ssh/authorized_keys"
 ssh jenkins@172.31.87.126
 
 
+<<<<<<< HEAD
 Jenkins - Machine
 
 
@@ -105,4 +134,6 @@ Jenkins - Machine
 
 
 
+=======
+>>>>>>> 8460e1e4f5e154e408629eb967aa74fc2249b6da
 
