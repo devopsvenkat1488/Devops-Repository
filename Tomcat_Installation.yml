@@ -13,3 +13,23 @@
   handlers:
   - name: restart tomcat
     service: name=tomcat state=restarted
+
+
+sudo wget https://www-us.apache.org/dist/tomcat/tomcat-8/v8.5.46/bin/apache-tomcat-8.5.46.zip
+sudo unzip apache-tomcat-8.5.46.zip
+sudo ln -s /opt/apache-tomcat-8.5.46 /opt/tomcat
+sudo mkdir /var/log/tomcat
+sudo mkdir /var/log/tomcat
+sudo rmdir /opt/tomcat/logs
+
+sudo useradd tomcat
+sudo chown -R tomcat:tomcat /opt/apache-tomcat-8.5.37
+sudo chown -R tomcat:tomcat /var/log/tomcat
+
+ <role rolename="manager-gui"/>
+        <role rolename="manager-script"/>
+        <role rolename="manager-jmx"/>
+        <role rolename="manager-status"/>
+        <user username="admin" password="admin" roles="manager-gui, manager-script, manager-jmx, manager-status"/>
+        <user username="deployer" password="deployer" roles="manager-script"/>
+        <user usernmae="tomcat" password="s3cret" roles="manager-gui"/>
