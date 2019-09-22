@@ -32,4 +32,4 @@ sudo chown -R tomcat:tomcat /var/log/tomcat
         <role rolename="manager-status"/>
         <user username="admin" password="admin" roles="manager-gui, manager-script, manager-jmx, manager-status"/>
         <user username="deployer" password="deployer" roles="manager-script"/>
-        <user usernmae="tomcat" password="s3cret" roles="manager-gui"/>
+        <user username="tomcat" password="s3cret" roles="manager-gui"/>
