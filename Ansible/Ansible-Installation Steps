@@ -28,7 +28,7 @@ BAD PASSWORD: The password is shorter than 8 characters
 Retype new password:
 passwd: all authentication tokens updated successfully.
 
-#Change the /etc/ssh/ssh_config file 
+#Change the /etc/ssh/sshd_config file 
 PasswordAuthentication yes - Uncomment this line
 #PasswordAuthentication no  - Comment out this line
 

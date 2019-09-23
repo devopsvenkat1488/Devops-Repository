@@ -1,0 +1,15 @@
+4 Instances
+
+
+1. Ansible Master - 172.31.36.196
+2. Jenkins Master - 172.31.37.91 
+3. Tomcat Webserver/Ansible Node1 - 172.31.44.147
+4. Ansible Node2 - 172.31.38.64
+
+Install Ansible in Master
+Create a User and do the passwordless connectivity from Ansible Master to Node1 and Node2
+
+Install Jenkins in Jenkins Master Machine
+
+Install Tomcat in Node1 and Node2 using Ansible Master.
+
