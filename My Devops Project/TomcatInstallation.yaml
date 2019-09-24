@@ -57,7 +57,7 @@
           name: tomcat
           state: started
           enabled: true
-          deamon_reload: true
+          deamon_reload: yes
 
 
 
