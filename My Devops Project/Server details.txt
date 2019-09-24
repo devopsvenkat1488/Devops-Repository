@@ -7,9 +7,9 @@
 4. Ansible Node2 - 172.31.38.64
 
 Install Ansible in Master
-Create a User and do the passwordless connectivity from Ansible Master to Node1 and Node2
+Create a User and do the passwordless connectivity from Ansible Master to Node1 and Node2 - Done
 
-Install Jenkins in Jenkins Master Machine
+Install Jenkins in Jenkins Master Machine - Done
 
 Install Tomcat in Node1 and Node2 using Ansible Master.
 

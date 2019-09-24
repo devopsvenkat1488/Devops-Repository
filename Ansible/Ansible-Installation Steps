@@ -32,6 +32,12 @@ passwd: all authentication tokens updated successfully.
 PasswordAuthentication yes - Uncomment this line
 #PasswordAuthentication no  - Comment out this line
 
+useradd ansadmin
+passwd ansadmin
+# below command addes ansadmin to sudoers file. But strongly recommended to use "visudo" command if you are aware vi or nano editor. 
+echo "ansadmin ALL=(ALL) ALL" >> /etc/sudoers
+sed -ie 's/PasswordAuthentication no/PasswordAuthentication yes/' /etc/ssh/sshd_config
+
 # service sshd restart in both the machines
 
 ssh-keygen -f <keyfilename>

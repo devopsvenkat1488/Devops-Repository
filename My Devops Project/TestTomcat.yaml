@@ -1,0 +1,23 @@
+---
+- hosts: all
+  become: yes
+  tasks:
+    - name: Create a directory
+      file:
+        path: /opt/tomat
+        state: directory
+        mode: "0755"
+    
+    - name: Pull the tomcat repository
+      unarchive:
+        src: http://mirrors.estointernet.in/apache/tomcat/tomcat-8/v8.5.46/bin/apache-tomcat-8.5.46.tar.gz
+        dest: /opt/tomcat
+        mode: "0755"
+
+    - name: Change the permission for .sh scripts
+      file:
+        dest: /opt/apache-tomcat-8.5.35/bin/startup.sh shutdown.sh
+        mode: "a+x"
+
+    
+    
