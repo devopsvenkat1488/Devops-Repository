@@ -8,3 +8,9 @@
       shell: docker rm my_container
     - name: Remove docker image
       shell: docker rmi apple1002/tomcat:Jenkins-Docker
+
+---
+- hosts: all
+  become: true
+  tasks:
+    - name: S
