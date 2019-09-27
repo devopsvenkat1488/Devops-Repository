@@ -1,1 +1,10 @@
 ---
+- hosts: all
+  become: true
+  tasks:
+    - name: Stop the running containers
+      shell: docker stop my_container
+    - name: Remove the stopped container
+      shell: docker rm my_container
+    - name: Remove docker image
+      shell: docker rmi apple1002/tomcat:Jenkins-Docker

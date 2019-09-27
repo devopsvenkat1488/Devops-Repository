@@ -1,0 +1,3 @@
+FROM tomcat:latest
+MAINTAINER "Venkatesh"
+COPY /*.war /usr/share/tomcat/webapps
