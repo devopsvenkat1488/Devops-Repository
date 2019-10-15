@@ -1,0 +1,48 @@
+Chef-Server-Setup:
+
+Step1:-
+Pre-Requisite: 
+1 vm(1GB RAM, 15 hdd, 1 cpu, 64bit linux)
+packages
+     a) chef-server-core (core)
+     b) chef-manage (gui)
+
+Step2:-
+Change Hostname
+vi /etc/Hostname 
+
+Step3:-
+Update the hostfile
+vi /etc/hosts
+ex: 
+ip hostname (fullyqualified domain name)
+
+step4:
+Download the above packages
+Install the pacakges
+
+step5:
+
+Installation steps for chef-server in linux-Suse:-
+
+ wget https://packages.chef.io/files/stable/chef-server/13.0.17/sles/12/chef-server-core-13.0.17-1.sles12.x86_64.rpm
+ sudo rpm -ivh chef-server-core-13.0.17-1.sles12.x86_64.rpm
+
+Installation for chef-manage:-
+
+wget https://packages.chef.io/files/stable/chef-manage/2.5.16/el/7/chef-manage-2.5.16-1.el7.x86_64.rpm
+sudo rpm -ivh https://packages.chef.io/files/stable/chef-manage/2.5.16/el/7/chef-manage-2.5.16-1.el7.x86_64.rpm
+
+sudo chef-server-ctl reconfigure --accept license
+sudo chef-manage-ctl reconfigure --accept-license
+chef-manage-ctl status
+
+step6:
+
+stop firewall or open port // if needed
+type Server Ip address and you can see the chef manage screen
+
+step7:
+
+how to create user and organization.
+

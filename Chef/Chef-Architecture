@@ -1,0 +1,17 @@
+Chef - Advantages:-
+1. More scalability
+2. Fully Automation
+
+Chef - Disadvantages:-
+Hard to learn
+
+Chef-Architecture: - 
+
+3-Tier Architecture
+                                            Pull
+Workstation                  Chef-Server<-------------Nodes(Chef client)
+                                                      Web servers
+                                                      DB servers
+                                                      Cache servers
+                                                      email servers
+                                                      monitoring servers
