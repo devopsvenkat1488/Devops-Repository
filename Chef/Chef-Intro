@@ -1,0 +1,74 @@
+What is Chef?
+
+Chef is a configuration managment tool
+
+What is configuration managment tool?
+
+It is to maintain number of machines to automate the deployments.
+
+What it maintain?
+
+it maintain the system resources such as
+1 - Installing application
+2 - configuration
+3 - Updates
+4 - maintain and soon
+
+Why configuration management tool?
+
+Reduce managment complexity
+For example - We have an enviroment Where below tools are runnning in one machine. To maintain a
+high avilability will go for 
+
+PHP
+APACHE and 
+MYSQL 
+
+Infrastructure as code
+
+Chef ensures each node compiles with policy.
+policy determined by the configuration in each nodes's runlist.
+reduce managment complexity through abstraction.
+your policy states what state each resource should be in.
+
+What is a resouce?
+
+resource is a piece of system and its desired state.
+
+file --> create/delete
+user --> create/delete
+package --> create/delete
+
+Managing complexity
+----------------------
+
+1 - Organization
+2 - enviroment
+3 - roles
+4 - nodes
+5 - recipes
+6 - cookbooks
+7 - runlist
+
+1) Organization: It is an independent tenant. Ex: companies/departments.
+
+2) enviroment : enviroment reflects your pattern and workflow, and it can be used to model the life
+                stages of an application
+            - > development enviroment
+            - > testing enviroment
+            - > staging enviroment
+            - > production enviroment
+3) roles : Roles represents the type of servers in your Infrastructure
+            
+            - > Web servers
+            - > DB servers
+            - > LB servers
+
+4) nodes : nodes represents the servers in your Infrastructure, it could be physical servers or virtual
+           servers. It could also be network/switches/routers.
+
+5) recipes : recipes is a collection of resources. Ex: file , application
+
+6) cookbooks: collection of recipes and templates and custome resources.
+
+7) runlist : runlist is  a collection of cookbooks, and every machine has its own runlist.
